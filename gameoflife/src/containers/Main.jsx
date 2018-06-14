@@ -1,4 +1,5 @@
 import React from 'react';
+import Grid from '../components/Grid.jsx'
 
 class Main extends React.Component {
   constructor() {
@@ -13,7 +14,7 @@ class Main extends React.Component {
       <div>
         <h1>Game of Life</h1>
         <Grid />
-        <h2>Generations: {this.state.generation}<h2>
+        <h2>Generations: {this.state.generation}</h2>
       </div>
     );
   }
