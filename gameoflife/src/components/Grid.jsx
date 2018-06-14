@@ -1,8 +1,9 @@
-import  React from 'react';
+import React from 'react';
+import Box from '../components/Box.jsx'
 
 class Grid extends React.Component {
   render() {
-    const width = this.props.cols * 14;
+    const width = this.props.cols * 16;
     let rowsArr = [];
 
     let boxClass = "";
@@ -20,13 +21,13 @@ class Grid extends React.Component {
             col={j}
             selectBox={this.props.selectBox}
             />
-        )
+        );
       }
     }
 
     return (
       <div className="grid" style={{width: width}}>
-        {{rowsArr}}
+        {rowsArr}
       </div>
     );
   }
