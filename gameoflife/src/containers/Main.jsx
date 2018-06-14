@@ -1,5 +1,7 @@
 import React from 'react';
 import Grid from '../components/Grid.jsx'
+import Buttons from '../components/Buttons.jsx'
+import { ButtonToolbar, MenuItem, DropdownButton} from 'react-bootstrap';
 
 class Main extends React.Component {
   constructor() {
@@ -80,6 +82,15 @@ class Main extends React.Component {
     return (
       <div>
         <h1>Game of Life</h1>
+        <Buttons
+          playButton={this.playButton}
+          pauseButton={this.pauseButton}
+          slow={this.slow}
+          fast={this.fast}
+          clear={this.clear}
+          seed={this.seed}
+          grid={this.gridSize}
+        />
         <Grid
           gridFull={this.state.gridFull}
           rows={this.rows}
