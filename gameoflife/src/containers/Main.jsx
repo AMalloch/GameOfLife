@@ -1,7 +1,6 @@
 import React from 'react';
 import Grid from '../components/Grid.jsx'
 import Buttons from '../components/Buttons.jsx'
-import { ButtonToolbar, MenuItem, DropdownButton} from 'react-bootstrap';
 
 class Main extends React.Component {
   constructor() {
@@ -47,6 +46,41 @@ class Main extends React.Component {
     clearInterval(this.intervalId);
   }
 
+  slow = () => {
+    this.speed = 1000;
+    this.playButton();
+  }
+
+  fast = () => {
+    this.speed = 100;
+    this.playButton();
+  }
+
+  clear = () => {
+    let grid = Array(this.rows).fill().map(() => Array(this.cols).fill(false));
+    this.setState({
+      gridFull: grid,
+      generation: 0
+    });
+  }
+
+  gridSize = (size) => {
+    switch (size) {
+      case "1":
+        this.cols = 20;
+        this.rows = 10;
+      break;
+      case "2":
+        this.cols = 50;
+        this.rows =30;
+      break;
+      default:
+        this.cols = 70;
+        this.rows = 50;
+    }
+    this.clear();
+  }
+
   play = () => {
     let g = this.state.gridFull;
     let g2 = arrayClone(this.state.gridFull);
@@ -89,7 +123,7 @@ class Main extends React.Component {
           fast={this.fast}
           clear={this.clear}
           seed={this.seed}
-          grid={this.gridSize}
+          gridSize={this.gridSize}
         />
         <Grid
           gridFull={this.state.gridFull}
